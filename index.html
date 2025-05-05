@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminho da Verdade - Vivendo a Palavra todos os dias</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #4b8bec;
+            --light-blue: #e6f0fa;
+            --gold: #d4af37;
+            --white: #ffffff;
+            --dark-blue: #1a365d;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f9fafc;
+            color: #333;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
+                              url('https://images.unsplash.com/photo-1500382018108-8b8e75a3b0a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .btn-gold {
+            background-color: var(--gold);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-blue {
+            background-color: var(--primary-blue);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-blue:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(75, 139, 236, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .verse-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(230,240,250,0.9) 100%);
+            border-left: 4px solid var(--gold);
+        }
+        
+        .ebook-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(230,240,250,0.9) 100%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .ebook-card:hover {
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="title-font text-2xl md:text-3xl font-bold text-blue-800">Caminho da Verdade</h1>
+                    <p class="text-xs md:text-sm text-gray-600">Vivendo a Palavra todos os dias</p>
+                </div>
+                
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#inicio" class="nav-link text-blue-800 hover:text-blue-600 font-medium">Início</a></li>
+                        <li><a href="#mensagem" class="nav-link text-blue-800 hover:text-blue-600 font-medium">Mensagem do Dia</a></li>
+                        <li><a href="#estudos" class="nav-link text-blue-800 hover:text-blue-600 font-medium">Estudos</a></li>
+                        <li><a href="#ebook" class="nav-link text-blue-800 hover:text-blue-600 font-medium">E-book</a></li>
+                        <li><a href="#contato" class="nav-link text-blue-800 hover:text-blue-600 font-medium">Contato</a></li>
+                        <li><a href="#youtube" class="nav-link text-blue-800 hover:text-blue-600 font-medium">YouTube</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-blue-800">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-2">
+                <ul class="flex flex-col space-y-2">
+                    <li><a href="#inicio" class="block py-2 text-blue-800 hover:text-blue-600">Início</a></li>
+                    <li><a href="#mensagem" class="block py-2 text-blue-800 hover:text-blue-600">Mensagem do Dia</a></li>
+                    <li><a href="#estudos" class="block py-2 text-blue-800 hover:text-blue-600">Estudos</a></li>
+                    <li><a href="#ebook" class="block py-2 text-blue-800 hover:text-blue-600">E-book</a></li>
+                    <li><a href="#contato" class="block py-2 text-blue-800 hover:text-blue-600">Contato</a></li>
+                    <li><a href="#youtube" class="block py-2 text-blue-800 hover:text-blue-600">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg pt-32 pb-20 px-4 md:px-0 fade-in">
+        <div class="container mx-auto text-center">
+            <h1 class="title-font text-3xl md:text-5xl font-bold text-blue-900 mb-6 leading-tight">
+                Conheça Jesus. Viva a Palavra. <br class="hidden md:block"> Descubra seu Propósito.
+            </h1>
+            <p class="text-lg md:text-xl text-blue-800 mb-10 max-w-3xl mx-auto">
+                Um caminho de fé, esperança e transformação através do estudo da Bíblia e da busca pelo propósito divino.
+            </p>
+            <a href="https://pay.kiwify.com.br/OiynHlI?afid=MdR4hFkC" target="_blank" class="btn-gold inline-block px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
+                Adquirir o E-book: Um Propósito com Deus
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Mensagem do Dia -->
+    <section id="mensagem" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto verse-card p-8 rounded-lg shadow-md fade-in">
+                <div class="text-center mb-6">
+                    <h2 class="title-font text-2xl md:text-3xl font-bold text-blue-900 mb-2">Mensagem do Dia</h2>
+                    <div class="w-20 h-1 bg-gold-500 mx-auto"></div>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-xl md:text-2xl italic text-blue-800 mb-6">
+                        "Entrega o teu caminho ao Senhor; confia nele, e o mais Ele fará."
+                    </p>
+                    <p class="text-lg font-semibold text-blue-700">– Salmos 37:5</p>
+                    
+                    <div class="mt-8 p-4 bg-white rounded-lg">
+                        <p class="text-gray-700">
+                            <span class="font-bold text-blue-800">Reflexão:</span> Mesmo sem entender, confie. Deus já preparou o caminho. Quando entregamos nossas preocupações e planos nas mãos do Senhor, Ele age de maneira que não podemos imaginar. Sua fidelidade nunca falha.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estudos Bíblicos -->
+    <section id="estudos" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="title-font text-3xl font-bold text-blue-900 mb-4">Estudos para Fortalecer sua Fé</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Explore temas profundos da Bíblia que transformarão sua vida espiritual e te aproximarão de Deus.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-blue-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-all">
+                    <div class="text-blue-800 mb-4">
+                        <i class="fas fa-cross text-3xl"></i>
+                    </div>
+                    <h3 class="title-font text-xl font-bold text-blue-900 mb-3">Fé e Confiança</h3>
+                    <p class="text-gray-700">
+                        Aprenda a depender totalmente de Deus em todas as circunstâncias, fortalecendo sua fé através das promessas bíblicas.
+                    </p>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-all">
+                    <div class="text-blue-800 mb-4">
+                        <i class="fas fa-heart text-3xl"></i>
+                    </div>
+                    <h3 class="title-font text-xl font-bold text-blue-900 mb-3">Amor Divino</h3>
+                    <p class="text-gray-700">
+                        Descubra a profundidade do amor de Deus por você e como esse amor transformador pode mudar seus relacionamentos.
+                    </p>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-all">
+                    <div class="text-blue-800 mb-4">
+                        <i class="fas fa-star text-3xl"></i>
+                    </div>
+                    <h3 class="title-font text-xl font-bold text-blue-900 mb-3">Propósito Eterno</h3>
+                    <p class="text-gray-700">
+                        Entenda o plano de Deus para sua vida e como viver de acordo com Seu propósito, encontrando significado e direção.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="https://www.bibliaonline.com.br" target="_blank" class="btn-blue inline-block px-8 py-3 rounded-full font-semibold shadow-lg">
+                    Estudar a Bíblia Online
+                    <i class="fas fa-book-open ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-book -->
+    <section id="ebook" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto ebook-card p-8 md:p-12 rounded-lg fade-in">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/3 mb-8 md:mb-0 md:pr-8">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="E-book Um Propósito com Deus" class="w-full rounded-lg shadow-lg">
+                    </div>
+                    
+                    <div class="md:w-2/3">
+                        <h2 class="title-font text-2xl md:text-3xl font-bold text-blue-900 mb-4">
+                            Transforme sua vida com o E-book: <span class="text-gold-600">Um Propósito com Deus</span>
+                        </h2>
+                        
+                        <p class="text-gray-700 mb-6">
+                            Este e-book foi cuidadosamente elaborado para guiá-lo em uma jornada de descoberta do propósito divino para sua vida. Através de estudos bíblicos profundos, reflexões pessoais e exercícios práticos, você será conduzido a uma compreensão mais clara do plano de Deus para você.
+                        </p>
+                        
+                        <ul class="mb-8 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-gold-500 mt-1 mr-2"></i>
+                                <span>Descubra como identificar os dons que Deus lhe deu</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-gold-500 mt-1 mr-2"></i>
+                                <span>Entenda os princípios bíblicos para uma vida com propósito</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-gold-500 mt-1 mr-2"></i>
+                                <span>Aprenda a alinhar seus sonhos com a vontade de Deus</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-gold-500 mt-1 mr-2"></i>
+                                <span>Supere obstáculos que te impedem de viver plenamente</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="text-center md:text-left">
+                            <a href="https://pay.kiwify.com.br/OiynHlI?afid=MdR4hFkC" target="_blank" class="btn-gold inline-block px-8 py-3 rounded-full font-semibold shadow-lg">
+                                Comprar E-book por R$ 29,90
+                                <i class="fas fa-shopping-cart ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto fade-in">
+                <div class="text-center mb-12">
+                    <h2 class="title-font text-3xl font-bold text-blue-900 mb-4">Precisa de Oração ou Aconselhamento?</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Estamos aqui para orar por você e ajudar em sua jornada de fé. Entre em contato conosco.
+                    </p>
+                </div>
+                
+                <div class="bg-blue-50 p-8 rounded-lg shadow-sm">
+                    <div class="text-center mb-8">
+                        <i class="fas fa-hands-praying text-4xl text-blue-700 mb-4"></i>
+                        <h3 class="title-font text-2xl font-bold text-blue-900 mb-2">Fale Conosco</h3>
+                        <p class="text-gray-700">
+                            Gostaria de oração ou conversar sobre fé? Estamos disponíveis para te ouvir com carinho e respeito.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="https://wa.me/5562999637179" target="_blank" class="btn-blue inline-block px-8 py-3 rounded-full font-semibold shadow-lg">
+                            <i class="fab fa-whatsapp mr-2"></i> Falar pelo WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube -->
+    <section id="youtube" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto fade-in">
+                <div class="text-center mb-12">
+                    <h2 class="title-font text-3xl font-bold text-blue-900 mb-4">Assista Conteúdos que Edificam sua Fé</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Mensagens inspiradoras, estudos bíblicos e reflexões para fortalecer sua caminhada com Cristo.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                    <div class="aspect-w-16 aspect-h-9 mb-4">
+                        <iframe class="w-full h-64 md:h-96 rounded-lg" src="https://www.youtube.com/embed?listType=user_uploads&list=luzeternaof" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="text-center">
+                        <a href="https://youtube.com/@luzeternaof?si=g5uRyihKAbECRb54" target="_blank" class="btn-blue inline-block px-8 py-3 rounded-full font-semibold shadow-lg">
+                            <i class="fab fa-youtube mr-2"></i> Ir para o Canal Luz Eterna
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="title-font text-2xl font-bold mb-2">Caminho da Verdade</h3>
+                    <p class="italic">"Jesus é o Caminho, a Verdade e a Vida." – João 14:6</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
+                    <div>
+                        <h4 class="font-bold mb-2">Navegação</h4>
+                        <ul class="space-y-1">
+                            <li><a href="#inicio" class="hover:text-gold-300 transition">Início</a></li>
+                            <li><a href="#mensagem" class="hover:text-gold-300 transition">Mensagem do Dia</a></li>
+                            <li><a href="#estudos" class="hover:text-gold-300 transition">Estudos Bíblicos</a></li>
+                            <li><a href="#ebook" class="hover:text-gold-300 transition">E-book</a></li>
+                            <li><a href="#contato" class="hover:text-gold-300 transition">Contato</a></li>
+                            <li><a href="#youtube" class="hover:text-gold-300 transition">YouTube</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-2">Redes Sociais</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://youtube.com/@luzeternaof?si=g5uRyihKAbECRb54" target="_blank" class="text-2xl hover:text-gold-300 transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://wa.me/5562999637179" target="_blank" class="text-2xl hover:text-gold-300 transition">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="text-2xl hover:text-gold-300 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-2xl hover:text-gold-300 transition">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-6 border-t border-blue-800 text-center text-sm">
+                <p>© 2025 Caminho da Verdade. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Add fade-in animation when elements come into view
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    fadeInObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            element.classList.add('opacity-0', 'transition-opacity', 'duration-700');
+            fadeInObserver.observe(element);
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=kocate5857/meusite" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
